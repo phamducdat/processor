@@ -1,0 +1,15 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "EventLogParam",
+  "type": "record",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "value",
+      "type": "string"
+    }
+  ]
+}

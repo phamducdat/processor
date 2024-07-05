@@ -1,0 +1,35 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "EnhancedEventLog",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "userId",
+      "type": "string"
+    },
+    {
+      "name": "taskIds",
+      "type": {
+        "type": "array",
+        "items": "long"
+      },
+      "default": []
+    },
+    {
+      "name": "campaignIds",
+      "type": {
+        "type": "array",
+        "items": "int"
+      },
+      "default": []
+    },
+    {
+      "name": "timestamp",
+      "type": "long"
+    }
+  ]
+}

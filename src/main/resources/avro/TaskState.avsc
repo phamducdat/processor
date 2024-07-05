@@ -1,0 +1,58 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "TaskState",
+  "type": "record",
+  "fields": [
+    {
+      "name": "userId",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "taskId",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "completed",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "lastCompletionTime",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "numCompletions",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "windowStart",
+      "type": "long",
+      "default": -1
+    },
+    {
+      "name": "windowEnd",
+      "type": "long",
+      "default": -1
+    },
+    {
+      "name": "questStates",
+      "type": {
+        "type": "map",
+        "values": "QuestState"
+      },
+      "default": {}
+    },
+    {
+      "name": "params",
+      "type": {
+        "type": "array",
+        "items": "EventLogParam"
+      },
+      "default": []
+    }
+  ]
+}

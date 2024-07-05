@@ -1,0 +1,41 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "QuestState",
+  "type": "record",
+  "fields": [
+    {
+      "name": "userId",
+      "type": "string"
+    },
+    {
+      "name": "taskId",
+      "type": "long"
+    },
+    {
+      "name": "numCompletions",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "totalValue",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "currentRecords",
+      "type": {
+        "type": "array",
+        "items": "QuestRecord"
+      },
+      "default": []
+    },
+    {
+      "name": "completions",
+      "type": {
+        "type": "array",
+        "items": "QuestCompletion"
+      },
+      "default": []
+    }
+  ]
+}

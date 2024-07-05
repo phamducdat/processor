@@ -1,0 +1,72 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <activeProfiles>
+        <activeProfile>nexus</activeProfile>
+    </activeProfiles>
+
+    <profiles>
+        <profile>
+            <id>nexus</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <!-- <repository>
+                    <id>maven-mvnrepository</id>
+                    <url>http://maven-mvnrepository</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>confluent</id>
+                    <url>http://confluent</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository> -->
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+    <servers>
+        <server>
+            <id>nexus</id>
+            <username>namdn</username>
+            <password>leBoljZpYvoDJ6BgsDEq4o</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>nexus</id>
+            <name>central</name>
+            <mirrorOf>external:*</mirrorOf>
+            <url>https://maven.wiinvent.tv/repository/maven-public/</url>
+        </mirror>
+        <!-- <mirror>
+            <id>maven-mvnrepository</id>
+            <name>maven-mvnrepository</name>
+            <mirrorOf>maven-mvnrepository</mirrorOf>
+            <url>https://maven.wiinvent.tv/repository/maven-mvnrepository/</url>
+        </mirror>
+        <mirror>
+            <id>confluent</id>
+            <name>confluent</name>
+            <mirrorOf>confluent</mirrorOf>
+            <url>https://maven.wiinvent.tv/repository/maven-confluent/</url>
+        </mirror> -->
+    </mirrors>
+</settings>

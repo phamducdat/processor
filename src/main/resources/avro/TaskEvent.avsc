@@ -1,0 +1,15 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "TaskEvent",
+  "type": "record",
+  "fields": [
+    {
+      "name": "taskId",
+      "type": "long"
+    },
+    {
+      "name": "event",
+      "type": "EventLog"
+    }
+  ]
+}

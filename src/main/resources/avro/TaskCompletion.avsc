@@ -1,0 +1,53 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "TaskCompletion",
+  "type": "record",
+  "fields": [
+    {
+       "name": "id",
+       "type": "string"
+    },
+    {
+       "name": "completedAt",
+       "type": "long"
+    },
+    {
+      "name": "taskId",
+      "type": "long"
+    },
+    {
+      "name": "point",
+      "type": "long"
+    },
+    {
+      "name": "userId",
+      "type": "string"
+    },
+    {
+      "name": "action",
+      "type": "string"
+    },
+    {
+      "name": "condition",
+      "type": "string"
+    },
+    {
+      "name": "campaignIds",
+      "type": {
+         "type": "array",
+         "items": "int"
+      },
+      "default": []
+    },
+    {
+      "name": "nextStartTime",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "numCompletions",
+      "type": "int",
+      "default": 0
+    }
+  ]
+}

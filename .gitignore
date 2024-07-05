@@ -1,0 +1,47 @@
+i##########################
+## Java
+##########################
+*.class
+.mtj.tmp/
+*.war
+*.ear
+*.log
+*.ctxt
+*.zip
+*.tar.gz
+hs_err_pid*
+
+##########################
+## Maven
+##########################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+maven-wrapper.jar
+timing.properties
+##########################
+## IntelliJ
+##########################
+*.iml
+.idea/
+*.ipr
+*.iws
+out/
+.idea_modules/
+
+##########################
+## OS X
+##########################
+.DS_Store
+
+##########################
+## Kafka state
+##########################
+state/
+
+.envs/

@@ -1,0 +1,50 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "EventLog",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "type",
+      "type": "string"
+    },
+    {
+      "name": "userId",
+      "type": "string"
+    },
+    {
+      "name": "value",
+      "type": "long",
+      "default": 1
+    },
+    {
+      "name": "occurredAt",
+      "type": "long"
+    },
+    {
+      "name": "receivedAt",
+      "type": "long"
+    },
+    {
+      "name": "processedAt",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "params",
+      "type": {
+        "type": "array",
+        "items": "EventLogParam"
+      },
+      "default": []
+    }
+  ]
+}

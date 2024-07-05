@@ -1,0 +1,15 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "QuestRecord",
+  "type": "record",
+  "fields": [
+    {
+      "name": "occurredAt",
+      "type": "long"
+    },
+    {
+      "name": "value",
+      "type": "long"
+    }
+  ]
+}

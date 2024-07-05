@@ -1,0 +1,9 @@
+ totalBonusPoints=18000,
+ promoted={A=[Promotion(id=33, taskId=631,
+  type=PromotionType(id=33, name=Khuyến mãi 30/4, code=khuyen_mai_304,
+  params=[PromotionTypeParam(name=, dataType=STRING, operator=IN_SET, value=A)]),
+  periodUnit=WEEK, bonusDay=4, bonusType=ADD, bonusValue=2000, startDate=2024-05-29, endDate=2054-05-29, state=ACTIVE, isNoEndDate=true),
+
+
+  Promotion(id=37, taskId=631, type=PromotionType(id=37, name=Test 2/9, code=test_29, params=[PromotionTypeParam(name=, dataType=STRING, operator=IN_SET, value=A)]),
+  periodUnit=SPECIFIC, bonusDay=1719421200000, bonusType=MULTI, bonusValue=3, startDate=2024-05-29, endDate=2054-05-29, state=ACTIVE, isNoEndDate=true)]}, paramValues = [A], userId=84912365400, taskId=631, ",

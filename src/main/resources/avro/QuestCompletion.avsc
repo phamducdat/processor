@@ -1,0 +1,23 @@
+{
+  "namespace": "com.wiinvent.gami.avro",
+  "name": "QuestCompletion",
+  "type": "record",
+  "fields": [
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "QuestCompletionStatus",
+        "symbols": ["COMPLETED", "DONE"]
+      }
+    },
+    {
+      "name": "records",
+      "type": {
+        "type": "array",
+        "items": "QuestRecord"
+      },
+      "default": []
+    }
+  ]
+}

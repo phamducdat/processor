@@ -1,0 +1,211 @@
+{
+  "data": [
+    {
+      "id": 123,
+      "name": "XXXX",
+      "startDate": "2022-03-01",
+      "endDate": "2022-06-15",
+      "isRecurring": false,
+      "point": 100,
+      "periodValue": 1,
+      "periodUnit": "WEEK",
+      "slidingType": "NON_OVERLAP",
+      "quests": [
+        {
+          "id": 1213,
+          "taskId": 1234,
+          "type": {
+            "id": 12,
+            "name": "Buy Mobile Card",
+            "code": "buy_mobile_card",
+            "externalId": "card_bought",
+            "parameterized": false,
+            "params": [
+              {
+                "name": "Package",
+                "externalId": "package",
+                "operator": "EQUAL",
+                "dataType": "STRING",
+                "value": "50K"
+              }
+            ]
+          },
+          "periodValue": 1,
+          "periodUnit": "DAY",
+          "completionRule": {
+            "minCount": 5,
+            "maxCount": 100,
+            "isContinuous": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 345,
+      "name": "xxxxxxx",
+      "startDate": "2022-03-01",
+      "endDate": "2022-04-15",
+      "isRecurring": false,
+      "point": 100,
+      "periodValue": 1,
+      "periodUnit": "WEEK",
+      "slidingType": "NON_OVERLAP",
+      "quests": [
+        {
+          "id": 1213,
+          "taskId": 1234,
+          "type": {
+            "id": 12,
+            "name": "Daily log-in",
+            "code": "daily_log_in",
+            "externalId": "123",
+            "parameterized": false
+          },
+          "periodValue": 1,
+          "periodUnit": "DAY",
+          "completionRule": {
+            "minCount": 1,
+            "maxCount": 100,
+            "isContinuous": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 678,
+      "name": "Login 5 ngày trong tháng",
+      "startDate": "2022-03-01",
+      "endDate": "2022-06-15",
+      "isRecurring": true,
+      "point": 100,
+      "periodValue": 1,
+      "periodUnit": "MONTH",
+      "slidingType": "NON_OVERLAP",
+      "quests": [
+        {
+          "id": 1213,
+          "taskId": 1234,
+          "type": {
+            "id": 12,
+            "name": "Login 5 ngày trong tháng",
+            "code": "log_in_5_days_per_month",
+            "externalId": "log_in_5_days_per_month",
+            "parameterized": false
+          },
+          "periodValue": 1,
+          "periodUnit": "DAY",
+          "completionRule": {
+            "minCount": 5,
+            "maxCount": -1,
+            "isContinuous": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 176,
+      "name": "Chơi hết 20 lần mini game trong vòng 30 ngày",
+      "startDate": "2022-03-22",
+      "endDate": "2022-04-23",
+      "isRecurring": true,
+      "point": 100,
+      "periodValue": 30,
+      "periodUnit": "DAY",
+      "quests": [
+        {
+          "id": 379,
+          "taskId": 176,
+          "type": {
+            "id": 176,
+            "name": "Chơi hết toàn bộ 20 lần mini game",
+            "code": "choi_het_toan_bo_20_lan_mini_game",
+            "externalId": "choi_het_toan_bo_20_lan_mini_game",
+            "parameterized": false,
+            "params": [
+            ]
+          },
+          "periodValue": 1,
+          "periodUnit": "INSTANT",
+          "completionRule": {
+            "minCount": 20,
+            "maxCount": 20,
+            "continuous": false
+          }
+        }
+      ],
+      "createdAt": 1647939520551,
+      "updatedAt": 1647940311463,
+      "slidingType": "NON_OVERLAP"
+    },
+    {
+      "id": 175,
+      "name": "Mua dịch vụ VAS tối thiểu >= 10.000 đồng",
+      "startDate": "2022-03-22",
+      "endDate": "2022-04-23",
+      "isRecurring": true,
+      "point": 50,
+      "periodValue": 1,
+      "periodUnit": "DAY",
+      "quests": [
+        {
+          "id": 376,
+          "taskId": 175,
+          "type": {
+            "id": 174,
+            "name": "Mua dịch vụ VAS",
+            "code": "mua_dich_vu_vas",
+            "externalId": "mua_dich_vu_vas",
+            "parameterized": false,
+            "params": [
+            ]
+          },
+          "periodValue": 1,
+          "periodUnit": "DAY",
+          "completionRule": {
+            "minCount": 10000,
+            "maxCount": -1,
+            "continuous": false
+          }
+        }
+      ],
+      "createdAt": 1647939005976,
+      "updatedAt": 1647940305976,
+      "slidingType": "NON_OVERLAP"
+    },
+    {
+      "id": 168,
+      "name": "Login Tất Cả ngày trong tháng",
+      "startDate": "2022-03-01",
+      "endDate": "2022-04-01",
+      "isRecurring": true,
+      "point": 100,
+      "periodValue": 1,
+      "periodUnit": "MONTH",
+      "quests": [
+        {
+          "id": 369,
+          "taskId": 168,
+          "type": {
+            "id": 161,
+            "name": "Login Tất Cả ngày trong tháng",
+            "code": "cjDRMZEQAy",
+            "externalId": "login_every_day_of_the_month",
+            "parameterized": false,
+            "params": [
+            ]
+          },
+          "periodValue": 1,
+          "periodUnit": "DAY",
+          "completionRule": {
+            "minCount": -5,
+            "maxCount": -1,
+            "continuous": true
+          }
+        }
+      ],
+      "createdAt": 1647935539498,
+      "updatedAt": 1647938644959,
+      "slidingType": "NON_OVERLAP"
+    }
+  ]
+}

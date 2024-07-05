@@ -1,0 +1,57 @@
+debug: ${DEBUG:-true}
+
+logging:
+  level:
+    org.springframework: ${LOG_LEVEL}
+    com.wiinvent.gami: ${LOG_LEVEL}
+
+server:
+  host: 0.0.0.0
+  port: ${PORT}
+
+#advertised:
+#  host: ${ADVERTISED_HOST}
+
+spring:
+  kafka:
+    #    client-id: bidding-service
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    topics:
+      config:
+        num-partitions: ${KAFKA_NUM_PARTITIONS:3}
+        replication-factor: ${KAFKA_REPLICATION_FACTOR:1}
+        retention-ms: ${KAFKA_RETENTION_MS:2592000000}
+      names:
+        event-log: ${KAFKA_TOPIC_EVENT_LOG:wiinvent.gami.event_log}
+        task-completion: ${KAFKA_TOPIC_TASK_COMPLETION:wiinvent.gami.task_completion}
+    streams:
+      application-id: gamicrm-stream-processor
+      cache-max-size-buffering: 20MB
+      state-dir: ${STATE_DIR}
+      properties:
+        # num.standby.replicas: 1
+        num.stream.threads: ${KAFKA_NUM_STREAM_THREADS:3}
+        auto.offset.reset: earliest
+        schema.registry.url: ${SCHEMA_REGISTRY_URL}
+        processing.guarantee: exactly_once
+        default.timestamp.extractor: org.apache.kafka.streams.processor.WallclockTimestampExtractor
+        buffered.records.per.partition: 100
+        default.key.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+        default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+#        rocksdb.config.setter: com.wiinvent.gami.streams.config.CustomRocksDBConfig
+        # application.server: ${ADVERTISED_HOST}:${PORT}
+        # where is transaction
+        # config zip encoding
+
+feign:
+  url: ${TASK_SERVICE_URL}
+  client:
+    config:
+      taskService:
+        connectTimeout: 500000
+        readTimeout: 500000
+
+stream:
+  group-key: ${STREAM_GROUP_KEY:GroupByUserAndTaskT3}
+  store-name: ${STREAM_STORE_NAME:TaskStateStoreT3}
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT" follow="true">
+      <PatternLayout
+        pattern="%style{%d{dd/MM/yy HH:mm:ss}}{yellow} | %highlight{%-5level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green} | gamicrm_stream_processor | %replace{%mdc{traceId}}{^$}{empty} | %replace{%mdc{spanId}}{^$}{empty} | %replace{%mdc{duration}}{^$}{0} | %style{%F}{blue}: %m%n"/>
+    </Console>
+    <Socket name="Remote" host="${env:LOG_IP}" port="${env:LOG_PORT}" protocol="UDP">
+      <PatternLayout
+        pattern="%d{dd/MM/yy HH:mm:ss} | %level | gamicrm_stream_processor | %replace{%mdc{traceId}}{^$}{empty} | %replace{%mdc{spanId}}{^$}{empty} | %replace{%mdc{duration}}{^$}{0} | %F: %m"/>
+    </Socket>
+  </Appenders>
+  <Loggers>
+    <Logger name="com.wiinvent.gami.streams" level="${env:LOG_LEVEL}" includeLocation="true"/>
+    <Logger name="org.springframework.web" level="${env:LOG_LEVEL}" includeLocation="true"/>
+    <AsyncRoot level="warn" includeLocation="true">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="Remote"/>
+    </AsyncRoot>
+  </Loggers>
+</Configuration>
+
