@@ -33,13 +33,35 @@ public class DateTimeUtils {
     return localDate.atStartOfDay().atZone(DEFAULT_ZONE_ID).toEpochSecond() * 1000;
   }
 
+  // TODO: I don't known
   public static long mapToTimeKey(long epochMillis, PeriodUnit periodUnit) {
     LocalDateTime dateTime = DateTimeUtils.toLocalDateTime(epochMillis);
 
     switch (periodUnit) {
       case HOUR:
         return 0;
+      case DAY:
+        return dateTime.getLong(ChronoField.EPOCH_DAY);
+      case WEEK:
+        long day = dateTime.getLong(ChronoField.EPOCH_DAY);
+        return day / 7 + 1;
+      case MONTH:
+        return dateTime.getLong(ChronoField.PROLEPTIC_MONTH);
+      case QUARTER:
+        long prolepticMonth = dateTime.getLong(ChronoField.PROLEPTIC_MONTH);
+        return prolepticMonth / 3 + 1;
+      case YEAR:
+        return dateTime.getYear();
+      default:
+        return epochMillis;
     }
+  }
+  public static LocalDate now() {
+    return toLocalDate(currentTimeMillis());
+  }
+
+  public static long getStartOfDay() {
+    return now().atStartOfDay(DEFAULT_ZONE_ID).toInstant().toEpochMilli();
   }
 
   public static long currentTimeMillis() {
