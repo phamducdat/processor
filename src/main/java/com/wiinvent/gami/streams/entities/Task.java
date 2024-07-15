@@ -6,13 +6,11 @@ import com.wiinvent.gami.streams.common.DateTimeUtils;
 import com.wiinvent.gami.streams.common.PeriodUnit;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.ObjectUtils;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.time.LocalDate;
-import java.util.AbstractMap;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -48,6 +46,32 @@ public class Task {
   private long createdAt;
   private long updatedAt;
 
+  private SlidingType slidingType;
+
+  private List<Integer> campaignIds;
+
+  private State state;
+
+  public boolean isEffective() {
+    LocalDate now = DateTimeUtils.now();
+
+    return state == State.ACTIVATE
+        && (Objects.isNull(startDate) || !now.isBefore(startDate))
+        && (Objects.isNull(endDate) || !now.isAfter(endDate));
+  }
+
+    public List<Integer> getCampaignIds() {
+    return ObjectUtils.defaultIfNull(campaignIds, Collections.emptyList());
+  }
+
+  public String getAction() {
+    return ObjectUtils.defaultIfNull(action, DEFAULT_ACTION);
+  }
+
+  public String getCondition() {
+    return ObjectUtils.defaultIfNull(condition, DEFAULT_CONDITION);
+  }
+
   public enum SlidingType {
     NON_OVERLAP,
     OVERLAP,
@@ -57,8 +81,8 @@ public class Task {
   }
 
   public enum State {
-    ACTIVE,
-    INACTIVE,
+    ACTIVATE,
+    INACTIVATE,
     COMPLETED,
     DELETED,
   }
