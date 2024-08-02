@@ -1,6 +1,7 @@
 package com.wiinvent.gami.streams.processors;
 
 import com.wiinvent.gami.avro.EventLog;
+import com.wiinvent.gami.avro.QuestState;
 import com.wiinvent.gami.avro.TaskEvent;
 import com.wiinvent.gami.avro.TaskState;
 import com.wiinvent.gami.streams.common.DateTimeUtils;
@@ -132,12 +133,40 @@ public class TaskCompletionStreamProcessor {
 
               List<Quest> quests = task.getQuests();
 
+              adjustWindowTime(task, taskState);
+
+              quests.forEach(
+                  quest -> {
+                    String questKey = String.valueOf(quest.getId());
+
+                    QuestState questState = taskState
+                        .getQuestStates()
+                        .getOrDefault(
+                            questKey,
+                            QuestState.newBuilder()
+                                .setTaskId(task.getId())
+                                .setUserId(event.getUserId())
+                                .build());
+
+                    taskState.getQuestStates().put(questKey, questState);
+                    if (!quest.getType().isEventMatched(event)) {
+                      log.debug(
+                          "Event type {} not matched with quest {}. Ignored.",
+                          event.getType(),
+                          quest.getId());
+                      return;
+                    }
+
+                  }
+              );
             }
         )
   }
 
 
-
+  private void adjustWindowTime(Task task, TaskState taskState) {
+    // TODO
+  }
 
 
 }
